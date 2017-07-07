@@ -29,6 +29,17 @@ def tabula_recta(msg, key):
     return chr((i_m + i_k) % 26 + orig)
 
 
+def tabula_versa(crp, key):
+    """
+    Convert an encrypted letter to clear letter from its matching key
+
+    :param crp: Encrypted letter
+    :param key: Key letter
+    :return: Message letter
+    """
+    return chr((ord(crp) - ord(key)) % 26 + ord('A'))
+
+
 class AlphabetCipher:
     def __init__(self, keyphrase):
         """ Do initial setup with keyphrase and anything

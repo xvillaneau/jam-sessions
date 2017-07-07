@@ -21,6 +21,20 @@ def test_tabula_recta():
     assert cipher.tabula_recta('Z', 'Z') == 'Y'
 
 
+def test_tabula_versa():
+    """Test cipher.tubula_versa"""
+    assert cipher.tabula_versa('A', 'A') == 'A'
+    assert cipher.tabula_versa('B', 'A') == 'B'
+    assert cipher.tabula_versa('Z', 'A') == 'Z'
+    assert cipher.tabula_versa('A', 'B') == 'Z'
+    assert cipher.tabula_versa('B', 'B') == 'A'
+    assert cipher.tabula_versa('C', 'B') == 'B'
+    assert cipher.tabula_versa('Z', 'B') == 'Y'
+    assert cipher.tabula_versa('A', 'Z') == 'B'
+    assert cipher.tabula_versa('B', 'Z') == 'C'
+    assert cipher.tabula_versa('Z', 'Z') == 'A'
+
+
 def test_encoding():
     """Write tests to ensure your encoding program works."""
     # Example, based on the instructions
