@@ -44,17 +44,18 @@ class AlphabetCipher:
     def __init__(self, keyphrase):
         """ Do initial setup with keyphrase and anything
         else needed to encode / decode. """
+        self.key = normalize(keyphrase)
+
+    def __oper(self, func, text):
+        """Apply a function that takes a letter and a key letter to a message"""
+        repeat_key = self.key * (len(text) // len(self.key) + 1)
+        couples = zip(normalize(text), repeat_key)
+        return str.join('', (func(*t) for t in couples))
 
     def encode(self, plaintext):
-        """ Write your code to encode the plaintext into
-        ciphertext. """
-        ciphertext = None
-        # Add your code here
-        return ciphertext
+        """Encode the plaintext into ciphertext. """
+        return self.__oper(tabula_recta, plaintext)
 
     def decode(self, ciphertext):
-        """ Write your code to decode the ciphertext back
-        into a plaintext message. """
-        plaintext = None
-        # Add your code here
-        return plaintext
+        """Decode the ciphertext back into a plaintext message."""
+        return self.__oper(tabula_versa, ciphertext)
